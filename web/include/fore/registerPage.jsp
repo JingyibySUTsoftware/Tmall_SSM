@@ -19,6 +19,9 @@
                     if ("success"!=result){
                         $("span.errorMessage").html("会员名已被使用！");
                         $("div.registerErrorMessageDiv").css("visibility", "visible");
+                    }else{
+                        $("span.errorMessage").html(" ");
+                        $("div.registerErrorMessageDiv").css("visibility", "hidden");
                     }
                 }
             );
@@ -86,7 +89,7 @@
 
             <tr>
                 <td colspan="2" class="registerButtonTD">
-                    <a href="registerSuccess.jsp">
+                    <a href="${pageContext.request.contextPath}/foreregister">
                         <button>提 交</button>
                     </a>
                 </td>

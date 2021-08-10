@@ -3,6 +3,6 @@
 
 <div class="registerSuccessDiv">
 
-    <img src="${pageContext.request.contextPath}/img/site/registerSuccess.png">
+    <img src="img/site/registerSuccess.png">
     恭喜注册成功
 </div>

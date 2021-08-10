@@ -5,9 +5,10 @@ import com.Tmall.service.CategoryService;
 import com.Tmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -23,11 +24,12 @@ public class ForeController {
     @Autowired
     private ProductService productService;
     @RequestMapping("forehome")
-    public String Home(Model model){
+    public String Home(HttpServletRequest request){
+        HttpSession session = request.getSession();
         List<Category> categorylist = categoryService.getAllCategory();
         productService.fill(categorylist);
         productService.fillByRow(categorylist);
-        model.addAttribute("categories",categorylist);
+        session.setAttribute("categories",categorylist);
         return  "fore/home";
     }
 }

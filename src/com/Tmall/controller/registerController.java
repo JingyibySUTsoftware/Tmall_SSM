@@ -30,6 +30,6 @@ public class registerController {
     @RequestMapping("foreregister")
     public String addnewUser(User user){
         userService.userAdd(user);
-        return "redirect:registerSuccess";
+        return "redirect:registerSuccess.jsp";
     }
 }
