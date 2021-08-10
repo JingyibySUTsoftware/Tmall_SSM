@@ -72,12 +72,13 @@ public class ProductServiceImpl implements ProductService {
             fill(category);
         }
     }
+    //每一类所属的所有产品绑定
     @Override
     public void fill(Category c) {
         List<Product> productList = listBycid(c.getId());
         c.setProducts(productList);
     }
-
+    //给每个产品添加封面图片属性
     public ProductImage setforeFirstProductImage(Product product) {
         ProductImage productImage = null;
         List<ProductImage> list = productImageService.list(product.getId(), ProductImageService.TYPE_SINGLE);
@@ -86,6 +87,7 @@ public class ProductServiceImpl implements ProductService {
         }
         return  productImage;
     }
+    //给首页菜单添加产品小标题，每行8个
     @Override
     public void fillByRow(List<Category> categoryList) {
         int productNumEachRow=8;

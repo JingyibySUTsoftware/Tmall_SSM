@@ -32,7 +32,7 @@ public class PropertyValueServiceImpl implements PropertyValueService {
     public int updateVByid(PropertyValue p) {
         return propertyValueMapper.updateVByid(p);
     }
-
+    //初始化产品的属性值
     @Override
     public void init(Product p) {
         List<Property> prlist = propertyMapper.listBycid(p.getCid());

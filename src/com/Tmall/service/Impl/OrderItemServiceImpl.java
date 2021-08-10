@@ -29,13 +29,14 @@ public class OrderItemServiceImpl implements OrderItemService {
     public List<OrderItem> getByoid(Integer oid) {
         return orderItemMapper.getByoid(oid);
     }
-
+    //遍历每一条订单
     @Override
     public void fill(List<Order> or) {
         for (Order order : or) {
             fill(order);
         }
     }
+    //只查询每个产品的封面图片，只要一张
     public ProductImage setFirstProductImage(Product product) {
         ProductImage productImage = null;
         List<ProductImage> list = productImageService.list(product.getId(), ProductImageService.TYPE_SINGLE);
@@ -44,7 +45,7 @@ public class OrderItemServiceImpl implements OrderItemService {
         }
         return  productImage;
     }
-
+    //为每个订单添加具体的购买明细(查找该订单下的所有产品信息，每个产品添加封面图片id，方便前台调用显示)
     @Override
     public void fill(Order o) {
         List<OrderItem> byoid = orderItemMapper.getByoid(o.getId());

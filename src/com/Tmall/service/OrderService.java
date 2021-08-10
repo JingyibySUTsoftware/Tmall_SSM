@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 @Transactional
 public interface OrderService {
+    //订单状态码
     String waitPay = "waitPay";
     String waitDelivery = "waitDelivery";
     String waitConfirm = "waitConfirm";
