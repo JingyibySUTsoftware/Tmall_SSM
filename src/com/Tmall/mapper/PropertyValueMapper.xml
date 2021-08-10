@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Tmall.mapper.PropertyValueMapper">
+	<resultMap type="PropertyValue" id="PropertyValuemap">
+		<result property="id" column="id"/>
+		<result property="pid" column="pid"/>
+		<result property="ptid" column="ptid"/>
+		<result property="value" column="value"/>
+		<association property="property" javaType="Property">
+			<result property="id" column="id"/>
+			<result property="cid" column="cid"/>
+			<result property="name" column="name"/>
+		</association>
+	</resultMap>
+	
+	<select id="getPvByPid" resultMap="PropertyValuemap">
+		SELECT * FROM  propertyvalue pv,property p where
+		pv.pid=#{pid} and pv.ptid=p.id
+	</select>
+	
+	<update id="updateVByid">
+		UPDATE propertyvalue set value=#{value} where  id=#{id}
+	</update>
+	
+	<select id="getPv" resultMap="PropertyValuemap">
+		SELECT * FROM  propertyvalue  where  pid=#{pid} and ptid=#{ptid}
+	</select>
+	
+	<insert id="addPv">
+		insert into propertyvalue(pid,ptid) values(#{pid},#{ptid})   
+	</insert>
+	
+</mapper>
+
+

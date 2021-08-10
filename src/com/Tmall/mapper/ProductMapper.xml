@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Tmall.mapper.ProductMapper">
+	<resultMap type="Product" id="Productmap">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="subTitle" column="subTitle"/>
+		<result property="originalPrice" column="originalPrice"/>
+		<result property="promotePrice" column="promotePrice"/>
+		<result property="stock" column="stock"/>
+		<result property="cid" column="cid"/>
+		<result property="createDate" column="createDate"/>
+		<result property="name" column="name"/>
+		<association property="category" javaType="Category">
+			<result property="id" column="id"/>
+			<result property="name" column="name"/>
+		</association>
+	</resultMap>
+	
+	<select id="list" resultMap="Productmap">
+		select * from product where cid=#{cid} order by id desc limit #{start},#{count}
+	</select>
+	<select id="listBycid" resultMap="Productmap">
+		select * from product where cid=#{cid}
+	</select>
+	<insert id="add">
+		insert into product(name,subTitle,originalPrice,promotePrice,stock,cid,createDate)
+		values(#{name},#{subTitle},#{originalPrice},#{promotePrice},#{stock},#{cid},#{createDate})
+	</insert>
+	
+	<select id="get" resultMap="Productmap">
+		select * from product where id=#{id}
+	</select>
+	
+	<update id="update">
+		update product set name=#{name},subTitle=#{subTitle},originalPrice=#{originalPrice},
+		promotePrice=#{promotePrice},stock=#{stock} where id=#{id}
+	</update>
+	<delete id="delete">
+		delete from product where id=#{id}
+	</delete>
+	
+	<select id="total" resultType="integer">
+		select count(*) from product where cid=#{cid}
+	</select>
+</mapper>
+
+

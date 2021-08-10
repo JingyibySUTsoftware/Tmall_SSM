@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Tmall.mapper.PropertyMapper">
+	<resultMap type="Property" id="Propertymap">
+		<result property="id" column="id"/>
+		<result property="cid" column="cid"/>
+		<result property="name" column="name"/>
+		<association property="category" javaType="Category">
+			<result property="id" column="id"/>
+			<result property="name" column="name"/>
+		</association>
+	</resultMap>
+	
+	<select id="list" resultMap="Propertymap">
+		select * from property where cid=#{cid} order by id desc limit #{start},#{count}
+	</select>
+
+	<insert id="add">
+		insert into property (cid,name) values(#{cid},#{name})
+	</insert>
+	
+	<select id="get" resultMap="Propertymap">
+		select * from property where id=#{id}
+	</select>
+	
+	<update id="update">
+		update property set name=#{name} where id=#{id}
+	</update>
+	<delete id="delete">
+		delete from property where id=#{id}
+	</delete>
+	
+	<select id="total" resultType="integer">
+		select count(*) from property where cid=#{cid}
+	</select>
+	
+	<select id="listBycid" resultMap="Propertymap">
+		select * from property where cid=#{cid}
+	</select>
+</mapper>
+
+

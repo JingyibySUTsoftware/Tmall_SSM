@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Tmall.mapper.OrderMapper">
+	<resultMap type="Order" id="Ordermap">
+		<result property="id" column="id"/>
+		<result property="orderCode" column="orderCode"/>
+		<result property="address" column="address"/>
+		<result property="post" column="post"/>
+		<result property="receiver" column="receiver"/>
+		<result property="mobile" column="mobile"/>
+		<result property="userMessage" column="userMessage"/>
+		<result property="createDate" column="createDate"/>
+		<result property="payDate" column="payDate"/>
+		<result property="deliveryDate" column="deliveryDate"/>
+		<result property="confirmDate" column="confirmDate"/>
+		<result property="uid" column="uid"/>
+		<result property="status" column="status"/>
+		<association property="user" javaType="User">
+			<result property="id" column="id"/>
+			<result property="name" column="name"/>
+		</association>
+
+	</resultMap>
+	<select id="list" resultMap="Ordermap">
+		select o.id,o.status, o.createDate,o.payDate,o.deliveryDate,o.confirmDate,u.name
+		from order_  o ,user u
+		where o.uid=u.id  order by id  desc limit #{start},#{count}
+	</select>
+	<select id="total" resultType="int">
+		select  count(*) from order_
+	</select>
+	<update id="updateOrderStatus">
+		update order_ set deliveryDate=#{deliveryDate},status=#{status} where id=#{id}
+	</update>
+</mapper>
+
+

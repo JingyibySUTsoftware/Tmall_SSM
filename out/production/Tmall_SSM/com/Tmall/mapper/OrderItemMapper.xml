@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Tmall.mapper.OrderItemMapper">
+    <resultMap type="OrderItem" id="OrderItemmap">
+        <result property="id" column="id"/>
+        <result property="pid" column="pid"/>
+        <result property="oid" column="oid"/>
+        <result property="uid" column="uid"/>
+        <result property="number" column="number"/>
+        <association property="product" javaType="Product">
+            <result property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="subTitle" column="subTitle"/>
+            <result property="originalPrice" column="originalPrice"/>
+            <result property="promotePrice" column="promotePrice"/>
+            <result property="stock" column="stock"/>
+            <result property="cid" column="cid"/>
+            <result property="createDate" column="createDate"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+    <select id="getByoid" resultMap="OrderItemmap">
+            select    p.id,p.name,p.promotePrice,oi.number
+            from orderitem oi,product p
+            where oi.oid=#{oid} and oi.pid=p.id
+    </select>
+  
+</mapper>
+
+
