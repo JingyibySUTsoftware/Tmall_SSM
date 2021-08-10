@@ -3,7 +3,7 @@
 
 <div class="simpleSearchOutDiv">
     <a href="${contextPath}">
-        <img id="simpleLogo" class="simpleLogo" src="img/site/simpleLogo.png">
+        <img id="simpleLogo" class="simpleLogo" src="${pageContext.request.contextPath}/img/site/simpleLogo.png">
     </a>
 
     <form action="foresearch" method="post">
@@ -11,7 +11,7 @@
             <input type="text" placeholder="平衡车 原汁机" value="${param.keyword}" name="keyword">
             <button class="searchButton" type="submit">搜天猫</button>
             <div class="searchBelow">
-                <c:forEach items="${cs}" var="c" varStatus="st">
+                <c:forEach items="${categories}" var="c" varStatus="st">
                     <c:if test="${st.count>=8 and st.count<=11}">
                     <span>
                         <a href="forecategory?category.id=${c.id}">

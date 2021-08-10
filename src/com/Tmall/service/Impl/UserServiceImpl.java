@@ -45,4 +45,18 @@ public class UserServiceImpl implements UserService {
     public void deleteUserByid(Integer id) {
         userMapper.deleteUserByid(id);
     }
+
+    @Override
+    public boolean userNameisExist(String name) {
+        if (userMapper.userNameisExist(name)>0){
+            return  true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public void userAdd(User user) {
+        userMapper.userAdd(user);
+    }
 }

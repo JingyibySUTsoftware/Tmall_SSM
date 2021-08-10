@@ -4,11 +4,25 @@
 <script>
     $(function () {
 
-        <c:if test="${!empty msg}">
-        $("span.errorMessage").html("${msg}");
-        $("div.registerErrorMessageDiv").css("visibility", "visible");
-        </c:if>
-
+        $("#name").blur(function(){
+            var name = $("#name").val();
+            var page="checkName"
+            if (name == "") {
+                $("span.errorMessage").html("会员名不能为空！");
+                $("div.registerErrorMessageDiv").css("visibility", "visible");
+                return false;
+            }
+            $.post(
+                page,
+                {"name": name},
+                function (result) {
+                    if ("success"!=result){
+                        $("span.errorMessage").html("会员名已被使用！");
+                        $("div.registerErrorMessageDiv").css("visibility", "visible");
+                    }
+                }
+            );
+        })
         $(".registerForm").submit(function () {
             if (0 == $("#name").val().length) {
                 $("span.errorMessage").html("请输入用户名");
@@ -53,7 +67,7 @@
             </tr>
             <tr>
                 <td class="registerTableLeftTD">登陆名</td>
-                <td class="registerTableRightTD"><input id="name" name="user.name" placeholder="会员名一旦设置成功，无法修改"></td>
+                <td class="registerTableRightTD"><input id="name" name="name" placeholder="会员名一旦设置成功，无法修改"></td>
             </tr>
             <tr>
                 <td class="registerTip registerTableLeftTD">设置登陆密码</td>
@@ -61,7 +75,7 @@
             </tr>
             <tr>
                 <td class="registerTableLeftTD">登陆密码</td>
-                <td class="registerTableRightTD"><input id="password" name="user.password" type="password"
+                <td class="registerTableRightTD"><input id="password" name="password" type="password"
                                                         placeholder="设置你的登陆密码"></td>
             </tr>
             <tr>

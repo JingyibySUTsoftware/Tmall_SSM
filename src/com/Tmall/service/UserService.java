@@ -55,4 +55,20 @@ public interface UserService {
      * @throws
      */
     void deleteUserByid(Integer id);
+    /**
+     * @description 判断用户名是否存在
+     * @param name
+     * @author jingyi
+     * @date 2021/8/10 11:18
+     * @return boolean
+     */
+    boolean userNameisExist(String name);
+    /**
+     * @description 用户注册
+     * @param user
+     * @author jingyi
+     * @date 2021/8/10 13:32
+     * @return void
+     */
+    void userAdd(User user);
 }

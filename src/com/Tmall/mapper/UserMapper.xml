@@ -25,6 +25,12 @@
 	<delete id="deleteUserByid">
 		delete from user where id=#{id}
 	</delete>
+	<select id="userNameisExist" resultType="int">
+		select count(*) from user where  name =#{name}
+	</select>
+	<insert id="userAdd">
+		insert  into user(name,password) values (#{name},#{password});
+	</insert>
 </mapper>
 
 
