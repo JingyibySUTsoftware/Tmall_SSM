@@ -29,8 +29,11 @@
 		select count(*) from user where  name =#{name}
 	</select>
 	<insert id="userAdd">
-		insert  into user(name,password) values (#{name},#{password});
+		insert  into user(name,password) values (#{name},#{password})
 	</insert>
+	<select id="getUserName" resultType="String">
+		select  name from user where name=#{name} and password=#{password}
+	</select>
 </mapper>
 
 

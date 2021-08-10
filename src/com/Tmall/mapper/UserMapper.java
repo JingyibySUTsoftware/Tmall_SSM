@@ -21,4 +21,6 @@ public interface UserMapper {
 	int userNameisExist(String name);
 
 	void userAdd(User user);
+
+	String getUserName(User user);
 }

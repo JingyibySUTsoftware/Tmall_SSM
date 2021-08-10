@@ -30,10 +30,10 @@
 <div id="loginDiv" style="position: relative">
 
     <div class="simpleLogo">
-        <a href="/forehome"><img src="img/site/simpleLogo.png"></a>
+        <a href="/forehome"><img src="${pageContext.request.contextPath}/img/site/simpleLogo.png"></a>
     </div>
 
-    <img id="loginBackgroundImg" class="loginBackgroundImg" src="img/site/loginBackground.png">
+    <img id="loginBackgroundImg" class="loginBackgroundImg" src="${pageContext.request.contextPath}/img/site/loginPage-background.jpg">
 
     <form class="loginForm" action="forelogin" method="post">
         <div id="loginSmallDiv" class="loginSmallDiv">
@@ -49,17 +49,16 @@
                 <span class="loginInputIcon ">
                     <span class=" glyphicon glyphicon-user"></span>
                 </span>
-                <input id="name" name="user.name" placeholder="手机/会员名/邮箱" type="text">
+                <input id="name" name="name" placeholder="手机/会员名/邮箱" type="text">
             </div>
 
             <div class="loginInput ">
                 <span class="loginInputIcon ">
                     <span class=" glyphicon glyphicon-lock"></span>
                 </span>
-                <input id="password" name="user.password" type="password" placeholder="密码" type="text">
+                <input id="password" name="password" type="password" placeholder="密码" type="text">
             </div>
             <span class="text-danger">不要输入真实的天猫账号密码</span><br><br>
-            <span class="text-danger">可以填写测试账号 a / a</span><br><br>
 
             <div>
                 <a class="notImplementLink" href="#nowhere">忘记登录密码</a>

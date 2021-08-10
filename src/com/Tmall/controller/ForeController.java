@@ -17,7 +17,7 @@ import java.util.List;
  * @description TODO
  * @date 2021/8/4 22:45
  */
-@Controller("foreController")
+@Controller
 public class ForeController {
     @Autowired
     private CategoryService categoryService;

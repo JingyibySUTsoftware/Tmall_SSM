@@ -10,7 +10,7 @@
 
 <div class="searchOutDiv">
     <a href="${contextPath}">
-        <img id="logo" width="290" height="140" src="${pageContext.request.contextPath}/img/site/tmall-logo.png" style="position: absolute;left: 200px;top: 30px;">
+        <img id="logo" width="290" height="140" src="${pageContext.request.contextPath}/img/site/tmall-logo.png" style="position: absolute;left: -40px;top: -50px;">
     </a>
     <form action="foresearch" method="post">
         <div class="searchDiv">

@@ -71,4 +71,13 @@ public interface UserService {
      * @return void
      */
     void userAdd(User user);
+    /*
+     * @description 登录验证
+     * @param name
+     * @param password
+     * @author jingyi
+     * @date 2021/8/10 20:33
+     * @return java.lang.String
+     */
+    String getUserName(User user);
 }
