@@ -41,7 +41,7 @@
                 <c:forEach items="${ps}" var="p">
                     <c:if test="${!empty p.subTitle}">
                         <a href="foreproduct?product.id=${p.id}">
-                            <c:forEach items="${fn:split(p.subTitle, '')}" var="title" varStatus="st">
+                            <c:forEach items="${fn:split(p.subTitle, ' ')}" var="title" varStatus="st">
                                 <c:if test="${st.index == 0}">
                                     ${title}
                                 </c:if>

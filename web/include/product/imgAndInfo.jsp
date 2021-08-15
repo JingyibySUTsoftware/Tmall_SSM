@@ -145,10 +145,10 @@
 <div class="imgAndInfo">
 
     <div class="imgInimgAndInfo">
-        <img src="img/productSingle/${product.firstProductImage.id}.jpg" class="bigImg">
+        <img src="${pageContext.request.contextPath}/img/productSingle/${product.productImage.id}.jpg" class="bigImg">
         <div class="smallImageDiv">
-            <c:forEach items="${product.productSingleImages}" var="pi">
-                <img src="img/productSingle_small/${pi.id}.jpg" bigImageURL="img/productSingle/${pi.id}.jpg"
+            <c:forEach items="${pisSingle}" var="pi">
+                <img src="${pageContext.request.contextPath}/img/productSingle/small/${pi.id}.jpg" bigImageURL="${pageContext.request.contextPath}/img/productSingle/${pi.id}.jpg"
                      class="smallImage">
             </c:forEach>
         </div>
@@ -170,7 +170,7 @@
                 <span>此商品即将参加聚划算，<span class="juhuasuanTime">1天19小时</span>后开始，</span>
             </div>
             <div class="productPriceDiv">
-                <div class="gouwujuanDiv"><img height="16px" src="img/site/gouwujuan.png">
+                <div class="gouwujuanDiv"><img height="16px" src="${pageContext.request.contextPath}/img/site/tmall-coupon.png">
                     <span> 全天猫实物商品通用</span>
 
                 </div>
@@ -192,8 +192,8 @@
             </div>
         </div>
         <div class="productSaleAndReviewNumber">
-            <div>销量 <span class="redColor boldWord"> ${product.saleCount }</span></div>
-            <div>累计评价 <span class="redColor boldWord"> ${product.reviewCount}</span></div>
+            <div>销量 <span class="redColor boldWord"> ${SaleCount }</span></div>
+            <div>累计评价 <span class="redColor boldWord"> ${ReviewCount}</span></div>
         </div>
         <div class="productNumber">
             <span>数量</span>
@@ -204,14 +204,14 @@
                 <span class="arrow">
                     <a href="#nowhere" class="increaseNumber">
                     <span class="updown">
-                            <img src="img/site/increase.png">
+                            <img src="${pageContext.request.contextPath}/img/site/increase.png">
                     </span>
                     </a>
 
                     <span class="updownMiddle"> </span>
                     <a href="#nowhere" class="decreaseNumber">
                     <span class="updown">
-                            <img src="img/site/decrease.png">
+                            <img src="${pageContext.request.contextPath}/img/site/decrease.png">
                     </span>
                     </a>
 

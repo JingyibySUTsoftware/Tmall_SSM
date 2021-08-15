@@ -22,7 +22,7 @@
                 <c:forEach items="${c.products}" var="p" varStatus="st">
                     <c:if test="${st.count<=5}">
                         <div class="productItem">
-                            <a href="foreproduct?product.id=${p.id}"><img width="100px"
+                            <a href="foreproduct?id=${p.id}"><img width="100px"
                                                                           src="${pageContext.request.contextPath}/img/productSingle/middle/${p.productImage.id}.jpg"></a>
                             <a class="productItemDescLink" href="foreproduct?product.id=${p.id}">
                                 <span class="productItemDesc">[热销]
