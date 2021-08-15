@@ -106,4 +106,13 @@ public interface ProductService {
      * @return void
      */
     void fillByRow(List<Category> categoryList);
+    /**
+     * @description 设置商品销量和评价数
+     * @param
+     * @param p
+     * @author jingyi
+     * @date 2021/8/15 17:25
+     * @return void
+     */
+    void setSaleAndReviewNumber(Product p);
 }

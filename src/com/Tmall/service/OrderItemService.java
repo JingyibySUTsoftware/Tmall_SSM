@@ -31,4 +31,13 @@ public interface OrderItemService {
       * @return void
       */
      void fill(Order o);
+    /**
+     * @description 获取商品的销量
+     * @param
+     * @param pid
+     * @author jingyi
+     * @date 2021/8/15 17:08
+     * @return int
+     */
+    int getSaleCount(Integer pid);
 }

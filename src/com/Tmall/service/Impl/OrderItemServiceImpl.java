@@ -61,4 +61,9 @@ public class OrderItemServiceImpl implements OrderItemService {
         o.setOrderItem(byoid);
     }
 
+    @Override
+    public int getSaleCount(Integer pid) {
+        return orderItemMapper.getSaleCount(pid);
+    }
+
 }

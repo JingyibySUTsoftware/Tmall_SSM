@@ -19,6 +19,8 @@ public class Product {
     private Date createDate;//创建日期
     private Category category;
     private ProductImage productImage;
+    private Integer SaleCount;
+    private Integer ReviewCount;
 
     public Integer getId() {
         return id;
@@ -98,5 +100,21 @@ public class Product {
 
     public void setProductImage(ProductImage productImage) {
         this.productImage = productImage;
+    }
+
+    public Integer getSaleCount() {
+        return SaleCount;
+    }
+
+    public void setSaleCount(Integer saleCount) {
+        SaleCount = saleCount;
+    }
+
+    public Integer getReviewCount() {
+        return ReviewCount;
+    }
+
+    public void setReviewCount(Integer reviewCount) {
+        ReviewCount = reviewCount;
     }
 }

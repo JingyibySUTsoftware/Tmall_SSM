@@ -26,7 +26,9 @@
             from orderitem oi,product p
             where oi.oid=#{oid} and oi.pid=p.id
     </select>
-  
+    <select id="getSaleCount" resultType="int">
+        select sum(number) from orderitem  where  pid=#{pid}
+    </select>
 </mapper>
 
 

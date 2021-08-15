@@ -4,8 +4,10 @@ import com.Tmall.bean.Category;
 import com.Tmall.bean.Product;
 import com.Tmall.bean.ProductImage;
 import com.Tmall.mapper.ProductMapper;
+import com.Tmall.service.OrderItemService;
 import com.Tmall.service.ProductImageService;
 import com.Tmall.service.ProductService;
+import com.Tmall.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class ProductServiceImpl implements ProductService {
     private ProductMapper productMapper;
     @Autowired
     private ProductImageService productImageService;
+    @Autowired
+    private OrderItemService orderItemService;
+    @Autowired
+    private ReviewService reviewService;
     @Override
     public List<Product> list(int start, int count, int cid) {
         return productMapper.list(start, count, cid);
@@ -106,6 +112,21 @@ public class ProductServiceImpl implements ProductService {
                 productRow.add(temp);
             }
             category.setProductsRow(productRow);
+        }
+    }
+    public void setSaleAndReviewNumber(Product p) {
+        //为产品设置销售和评价数量
+        int saleCount = orderItemService.getSaleCount(p.getId());
+        p.setSaleCount(saleCount);
+
+        int reviewCount = reviewService.getCount(p.getId());
+        p.setReviewCount(reviewCount);
+
+    }
+
+    public void setSaleAndReviewNumber(List<Product> products) {
+        for (Product p : products) {
+            setSaleAndReviewNumber(p);
         }
     }
 }
