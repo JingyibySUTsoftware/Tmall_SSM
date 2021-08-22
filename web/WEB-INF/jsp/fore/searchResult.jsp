@@ -9,8 +9,8 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 
 
-<%@include file="include/header.jsp"%>
-<%@include file="include/top.jsp"%>
-<%@include file="include/search.jsp"%>
-<%@include file="include/searchResultPage.jsp"%>
-<%@include file="include/footer.jsp"%>
+<%@include file="/include/fore/header.jsp"%>
+<%@include file="/include/fore/top.jsp"%>
+<%@include file="/include/fore/search.jsp"%>
+<%@include file="/include/fore/searchResultPage.jsp"%>
+<%@include file="/include/fore/footer.jsp"%>

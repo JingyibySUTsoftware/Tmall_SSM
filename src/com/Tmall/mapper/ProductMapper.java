@@ -25,4 +25,6 @@ public interface ProductMapper {
 
 	List<Product> listBycid(Integer cid);
 
+	List<Product> searchBykeyword(String keyword);
+
 }

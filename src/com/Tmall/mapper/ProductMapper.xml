@@ -45,6 +45,10 @@
 	<select id="total" resultType="integer">
 		select count(*) from product where cid=#{cid}
 	</select>
+	<select id="searchBykeyword" resultMap="Productmap">
+		select * from product
+ 		where  name like "%"#{keyword}"%" or subTitle like "%"#{keyword}"%" order by id desc
+	</select>
 </mapper>
 
 

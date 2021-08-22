@@ -4,6 +4,7 @@
 <div id="searchResult">
 
     <div class="searchResultDiv">
+        <%@include file="sortBar.jsp"%>
         <%@include file="productsBySearch.jsp"%>
     </div>
 

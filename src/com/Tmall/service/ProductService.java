@@ -124,4 +124,13 @@ public interface ProductService {
      * @return void
      */
     void setSaleAndReviewNumber(List<Product> productList);
+    /**
+     * @description 通过关键次模糊查询产品
+     * @param
+     * @param keyword
+     * @author jingyi
+     * @date 2021/8/22 19:14
+     * @return java.util.List<com.Tmall.bean.Product>
+     */
+    List<Product> searchBykeyword(String keyword);
 }

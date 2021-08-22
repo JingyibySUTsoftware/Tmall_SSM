@@ -82,6 +82,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void fill(Category c) {
         List<Product> productList = listBycid(c.getId());
+        for (Product product : productList) {
+            product.setProductImage(setforeFirstProductImage(product));
+        }
         c.setProducts(productList);
     }
     //给每个产品添加封面图片属性
@@ -128,5 +131,10 @@ public class ProductServiceImpl implements ProductService {
         for (Product p : products) {
             setSaleAndReviewNumber(p);
         }
+    }
+
+    @Override
+    public List<Product> searchBykeyword(String keyword) {
+        return productMapper.searchBykeyword(keyword);
     }
 }

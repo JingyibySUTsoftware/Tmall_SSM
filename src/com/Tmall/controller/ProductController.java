@@ -3,6 +3,7 @@ package com.Tmall.controller;
 import com.Tmall.bean.Category;
 import com.Tmall.bean.Product;
 import com.Tmall.bean.ProductImage;
+import com.Tmall.comparator.*;
 import com.Tmall.service.CategoryService;
 import com.Tmall.service.ProductImageService;
 import com.Tmall.service.ProductService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -80,5 +82,33 @@ public class ProductController {
         Product p = productService.get(id);
         productService.delete(id);
         return "redirect:admin_product_list?cid="+p.getCid();
+    }
+    @RequestMapping("foresearch")
+    public String searchProducts(String keyword,Model model,String sort){
+        List<Product> products = productService.searchBykeyword(keyword);
+        productService.setSaleAndReviewNumber(products);
+        setFirstProductImage(products);
+        if(sort!=null){
+            switch (sort){
+                case "review":
+                    Collections.sort(products,new ProductReviewComparator());
+                    break;
+                case "date":
+                    Collections.sort(products,new ProductDateComparator());
+                    break;
+                case "saleCount":
+                    Collections.sort(products,new ProductSaleCountComparator());
+                    break;
+                case "price":
+                    Collections.sort(products,new ProductPriceComparator());
+                case "all":
+                    Collections.sort(products,new ProductAllComparator());
+                default:
+
+            }
+        }
+        model.addAttribute("products",products);
+        model.addAttribute("keyword",keyword);
+        return "fore/searchResult";
     }
 }
