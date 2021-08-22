@@ -25,23 +25,23 @@
         <c:if test="${stc.count<=categorycount}">
             <div class="productUnit" price="${p.promotePrice}">
                 <div class="productUnitFrame">
-                    <a href="foreproduct?product.id=${p.id}">
-                        <img class="productImage" src="img/productSingle_middle/${p.firstProductImage.id}.jpg">
+                    <a href="foreproduct?id=${p.id}">
+                        <img class="productImage" src="${pageContext.request.contextPath}/img/productSingle/middle/${p.productImage.id}.jpg">
                     </a>
                     <span class="productPrice">¥<fmt:formatNumber type="number" value="${p.promotePrice}"
                                                                   minFractionDigits="2"/></span>
-                    <a class="productLink" href="foreproduct?product.id=${p.id}">
+                    <a class="productLink" href="foreproduct?id=${p.id}">
                             ${fn:substring(p.name, 0, 50)}
                     </a>
 
-                    <a class="tmallLink" href="foreproduct?product.id=${p.id}">天猫专卖</a>
+                    <a class="tmallLink" href="foreproduct?id=${p.id}">天猫专卖</a>
 
                     <div class="show1 productInfo">
                         <span class="monthDeal ">月成交 <span class="productDealNumber">${p.saleCount}笔</span></span>
                         <span class="productReview">评价<span class="productReviewNumber">${p.reviewCount}</span></span>
                         <span class="wangwang">
                     <a class="wangwanglink" href="#nowhere">
-                        <img src="img/site/wangwang.png">
+                        <img src="${pageContext.request.contextPath}/img/site/wangwang.png">
                     </a>
 
                     </span>

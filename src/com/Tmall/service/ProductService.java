@@ -115,4 +115,13 @@ public interface ProductService {
      * @return void
      */
     void setSaleAndReviewNumber(Product p);
+    /**
+     * @description 设置商品销量和评价数
+     * @param
+     * @param productList
+     * @author jingyi
+     * @date 2021/8/22 14:34
+     * @return void
+     */
+    void setSaleAndReviewNumber(List<Product> productList);
 }
