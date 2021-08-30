@@ -79,5 +79,5 @@ public interface UserService {
      * @date 2021/8/10 20:33
      * @return java.lang.String
      */
-    String getUserName(User user);
+    User getUserNameAndID(User user);
 }

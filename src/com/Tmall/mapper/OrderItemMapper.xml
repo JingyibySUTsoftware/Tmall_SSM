@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.Tmall.mapper.OrderItemMapper">
     <resultMap type="OrderItem" id="OrderItemmap">
-        <result property="id" column="id"/>
+        <result property="id" column="oiid"/>
         <result property="pid" column="pid"/>
         <result property="oid" column="oid"/>
         <result property="uid" column="uid"/>
@@ -28,6 +28,25 @@
     </select>
     <select id="getSaleCount" resultType="int">
         select sum(number) from orderitem  where  pid=#{pid}
+    </select>
+    <select id="getOderItemsByuid" resultMap="OrderItemmap">
+    select    p.id,p.name,p.promotePrice,oi.id oiid,oi.pid,oi.number
+                from orderitem oi,product p
+                where oi.uid=#{uid} and oi.pid=p.id
+    </select>
+    <insert id="addOrderItem" >
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            select last_insert_id()
+        </selectKey>
+        insert into orderitem(pid,uid,number) values (#{pid},#{uid},#{number})
+    </insert>
+    <update id="updateOrderItem">
+        update orderitem set number=#{number} where uid=#{uid} and pid=#{pid}
+    </update>
+    <select id="getOrderItem" resultMap="OrderItemmap">
+        select    p.id,p.name,p.promotePrice,oi.number
+            from orderitem oi,product p
+            where oi.id=#{id} and oi.pid=p.id
     </select>
 </mapper>
 

@@ -104,7 +104,7 @@
             var page = "foreloginAjax";
             $.get(
                 page,
-                {"user.name": name, "user.password": password},
+                {"name": name, "password": password},
                 function (result) {
                     if ("success" == result) {
                         location.reload();
@@ -148,7 +148,7 @@
         <img src="${pageContext.request.contextPath}/img/productSingle/${product.productImage.id}.jpg" class="bigImg">
         <div class="smallImageDiv">
             <c:forEach items="${pisSingle}" var="pi">
-                <img src="${pageContext.request.contextPath}/img/productSingle/small/${pi.id}.jpg" bigImageURL="${pageContext.request.contextPath}/img/productSingle/${pi.id}.jpg"
+                <img src="${pageContext.request.contextPath}/img/productSingle/small/${pi.id}.jpg" bigImageURL="img/productSingle/${pi.id}.jpg"
                      class="smallImage">
             </c:forEach>
         </div>
@@ -192,7 +192,7 @@
             </div>
         </div>
         <div class="productSaleAndReviewNumber">
-            <div>销量 <span class="redColor boldWord"> ${SaleCount }</span></div>
+            <div>销量 <span class="redColor boldWord"> ${SaleCount}</span></div>
             <div>累计评价 <span class="redColor boldWord"> ${ReviewCount}</span></div>
         </div>
         <div class="productNumber">
@@ -231,7 +231,7 @@
         </div>
 
         <div class="buyDiv">
-            <a class="buyLink" href="forebuyone?product.id=${product.id}">
+            <a class="buyLink" href="forebuyone?pid=${product.id}">
                 <button class="buyButton">立即购买</button>
             </a>
             <a href="#nowhere" class="addCartLink">

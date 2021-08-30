@@ -10,4 +10,12 @@ public interface OrderItemMapper {
      List<OrderItem>  getByoid(Integer oid);
 
      int getSaleCount(Integer pid);
+
+     List<OrderItem> getOderItemsByuid(Integer uid);
+
+     void addOrderItem(OrderItem orderItem);
+
+     void updateOrderItem(OrderItem orderItem);
+
+     OrderItem getOrderItem(Integer id);
 }

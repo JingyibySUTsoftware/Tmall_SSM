@@ -22,5 +22,5 @@ public interface UserMapper {
 
 	void userAdd(User user);
 
-	String getUserName(User user);
+	User getUserNameAndID(User user);
 }

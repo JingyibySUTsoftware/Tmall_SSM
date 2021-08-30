@@ -66,4 +66,25 @@ public class OrderItemServiceImpl implements OrderItemService {
         return orderItemMapper.getSaleCount(pid);
     }
 
+    @Override
+    public List<OrderItem> getOderItemsByuid(Integer uid) {
+        return orderItemMapper.getOderItemsByuid(uid);
+    }
+
+    @Override
+    public OrderItem addOrderItem(OrderItem orderItem) {
+       orderItemMapper.addOrderItem(orderItem);
+       return orderItem;
+    }
+
+    @Override
+    public void updateOrderItem(OrderItem orderItem) {
+        orderItemMapper.updateOrderItem(orderItem);
+    }
+
+    @Override
+    public OrderItem getOrderItem(Integer id) {
+        return orderItemMapper.getOrderItem(id);
+    }
+
 }

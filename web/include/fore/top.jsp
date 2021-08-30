@@ -15,11 +15,11 @@
         </a>
 
         <span>喵，欢迎来到天猫</span>
-        <c:if test="${!empty username}">
-            <a href="${pageContext.request.contextPath}/tologin">${username}</a>
+        <c:if test="${!empty nameAndID}">
+            <a href="${pageContext.request.contextPath}/tologin">${nameAndID.name}</a>
             <a href="${pageContext.request.contextPath}/forelogout">退出</a>
         </c:if>
-        <c:if test="${empty username}">
+        <c:if test="${empty nameAndID}">
             <a href="${pageContext.request.contextPath}/tologin">请登录</a>
             <a href="${pageContext.request.contextPath}/register.jsp">免费注册</a>
         </c:if>

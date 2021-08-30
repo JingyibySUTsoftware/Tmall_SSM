@@ -4,8 +4,8 @@
     <form action="forecreateOrder" method="post">
 
         <div class="buyFlow">
-            <img class="pull-left" src="img/site/simpleLogo.png">
-            <img class="pull-right" src="img/site/buyflow.png">
+            <img class="pull-left" src="${pageContext.request.contextPath}/img/site/simpleLogo.png">
+            <img class="pull-right" src="${pageContext.request.contextPath}/img/site/buyflow.png">
             <div style="clear:both"></div>
         </div>
         <div class="address">
@@ -16,7 +16,7 @@
                     <tr>
                         <td class="firstColumn">详细地址<span class="redStar">*</span></td>
 
-                        <td><textarea name="order.address" placeholder="建议您如实填写详细收货地址，例如接到名称，门牌好吗，楼层和房间号等信息"></textarea>
+                        <td><textarea name="order.address" placeholder="建议您如实填写详细收货地址，例如接到名称，门牌号码，楼层和房间号等信息"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -43,7 +43,7 @@
                 <thead>
                 <tr>
                     <th colspan="2" class="productListTableFirstColumn">
-                        <img class="tmallbuy" src="img/site/tmallbuy.png">
+                        <img class="tmallbuy" src="${pageContext.request.contextPath}/img/site/tmallbuy.png">
                         <a class="marketLink" href="#nowhere">店铺：天猫店铺</a>
                         <a class="wangwanglink" href="#nowhere"> <span class="wangwangGif"></span> </a>
                     </th>
@@ -64,16 +64,16 @@
                 <c:forEach items="${orderItems}" var="oi" varStatus="st">
                     <tr class="orderItemTR">
                         <td class="orderItemFirstTD"><img class="orderItemImg"
-                                                          src="img/productSingle_middle/${oi.product.firstProductImage.id}.jpg">
+                                                          src="${pageContext.request.contextPath}/img/productSingle/middle/${oi.product.productImage.id}.jpg">
                         </td>
                         <td class="orderItemProductInfo">
-                            <a href="foreproduct?product.id=${oi.product.id}" class="orderItemProductLink">
+                            <a href="foreproduct?pid=${oi.product.id}" class="orderItemProductLink">
                                     ${oi.product.name}
                             </a>
 
-                            <img src="img/site/creditcard.png" title="支持信用卡支付">
-                            <img src="img/site/7day.png" title="消费者保障服务,承诺7天退货">
-                            <img src="img/site/promise.png" title="消费者保障服务,承诺如实描述">
+                            <img src="${pageContext.request.contextPath}/img/site/creditcard.png" title="支持信用卡支付">
+                            <img src="${pageContext.request.contextPath}/img/site/7day.png" title="消费者保障服务,承诺7天退货">
+                            <img src="${pageContext.request.contextPath}/img/site/promise.png" title="消费者保障服务,承诺如实描述">
 
                         </td>
                         <td>
@@ -113,7 +113,7 @@
                 <div class="pull-left">
                     <span class="leaveMessageText">给卖家留言:</span>
                     <span>
-                    <img class="leaveMessageImg" src="img/site/leaveMessage.png">
+                    <img class="leaveMessageImg" src="${pageContext.request.contextPath}/img/site/leaveMessage.png">
                 </span>
                     <span class="leaveMessageTextareaSpan">
                     <textarea name="order.userMessage" class="leaveMessageTextarea"></textarea>
