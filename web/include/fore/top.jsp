@@ -9,7 +9,7 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 <nav class="top">
     <div style="max-width:1024px;margin:0px auto;">
-        <a href="forehome">
+        <a href="${pageContext.request.contextPath}/forehome">
             <span style="color: #C40000;margin: 0px;" class="glyphicon glyphicon-home redColor"></span>
             天猫首页
         </a>
@@ -28,7 +28,7 @@
 
         <span class="pull-right">
             <a href="forebought">我的订单</a>
-            <a href="forecart">
+            <a href="${pageContext.request.contextPath}/forecart">
                 <span style="color: #c40000;margin: 0px;" class="glyphicon glyphicon-shopping-cart redColor"></span>
                 购物车<strong>${cartTotalItemNumber}</strong> 件
             </a>

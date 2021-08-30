@@ -87,4 +87,9 @@ public class OrderItemServiceImpl implements OrderItemService {
         return orderItemMapper.getOrderItem(id);
     }
 
+    @Override
+    public void deleteOrderItem(Integer id) {
+        orderItemMapper.deleteOrderItem(id);
+    }
+
 }

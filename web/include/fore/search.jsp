@@ -9,7 +9,7 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 
 <div class="searchOutDiv">
-    <a href="${contextPath}">
+    <a href="${contextPath}/forehome">
         <img id="logo" width="290" height="140" src="${pageContext.request.contextPath}/img/site/tmall-logo.png" style="position: absolute;left: -40px;top: -50px;">
     </a>
     <form action="foresearch" method="post">

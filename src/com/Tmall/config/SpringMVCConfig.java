@@ -1,5 +1,8 @@
 package com.Tmall.config;
 
+import com.Tmall.Interceptor.CartAndLogoInterceptor;
+import com.Tmall.Interceptor.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
@@ -10,6 +13,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -57,6 +61,15 @@ public class SpringMVCConfig implements WebMvcConfigurer {
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         StringHttpMessageConverter shm = new StringHttpMessageConverter(Charset.forName("utf-8"));
         converters.add(shm);
+    }
+    @Autowired
+    private LoginInterceptor loginInterceptor;
+    @Autowired
+    private CartAndLogoInterceptor cartAndLogoInterceptor;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/fore*");
+        registry.addInterceptor(cartAndLogoInterceptor).addPathPatterns("/fore*");
     }
 
 }

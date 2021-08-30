@@ -9,6 +9,7 @@
         $("a.deleteOrderItem").click(function () {
             deleteOrderItem = false;
             var oiid = $(this).attr("oiid")
+            alert(oiid)
             deleteOrderItemid = oiid;
             $("#deleteConfirmModal").modal('show');
         });
@@ -22,7 +23,7 @@
                 var page = "foredeleteOrderItem";
                 $.post(
                     page,
-                    {"orderItem.id": deleteOrderItemid},
+                    {"oiid": deleteOrderItemid},
                     function (result) {
                         if ("success" == result) {
                             $("tr.cartProductItemTR[oiid=" + deleteOrderItemid + "]").hide();
@@ -195,7 +196,7 @@
         var page = "forechangeOrderItem";
         $.post(
             page,
-            {"product.id": pid, "num": num},
+            {"pid": pid, "num": num},
             function (result) {
                 if ("success" != result) {
                     location.href = "login.jsp";
@@ -219,7 +220,7 @@
             <thead>
             <tr>
                 <th class="selectAndImage">
-                    <img selectit="false" class="selectAllItem" src="img/site/cartNotSelected.png">
+                    <img selectit="false" class="selectAllItem" src="${pageContext.request.contextPath}/img/site/cartNotSelected.png">
                     全选
 
                 </th>
@@ -231,23 +232,23 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${orderItems }" var="oi">
+            <c:forEach items="${orderItems}" var="oi">
                 <tr oiid="${oi.id}" class="cartProductItemTR">
                     <td>
                         <img selectit="false" oiid="${oi.id}" class="cartProductItemIfSelected"
                              src="img/site/cartNotSelected.png">
-                        <a style="display:none" href="#nowhere"><img src="img/site/cartSelected.png"></a>
+                        <a style="display:none" href="#nowhere"><img src="${pageContext.request.contextPath}/img/site/cartSelected.png"></a>
                         <img class="cartProductImg"
-                             src="img/productSingle_middle/${oi.product.firstProductImage.id}.jpg">
+                             src="${pageContext.request.contextPath}/img/productSingle/middle/${oi.product.productImage.id}.jpg">
                     </td>
                     <td>
                         <div class="cartProductLinkOutDiv">
                             <a href="foreproduct?product.id=${oi.product.id}"
                                class="cartProductLink">${oi.product.name}</a>
                             <div class="cartProductLinkInnerDiv">
-                                <img src="img/site/creditcard.png" title="支持信用卡支付">
-                                <img src="img/site/7day.png" title="消费者保障服务,承诺7天退货">
-                                <img src="img/site/promise.png" title="消费者保障服务,承诺如实描述">
+                                <img src="${pageContext.request.contextPath}/img/site/creditcard.png" title="支持信用卡支付">
+                                <img src="${pageContext.request.contextPath}/img/site/7day.png" title="消费者保障服务,承诺7天退货">
+                                <img src="${pageContext.request.contextPath}/img/site/promise.png" title="消费者保障服务,承诺如实描述">
                             </div>
                         </div>
 
@@ -289,7 +290,7 @@
     </div>
 
     <div class="cartFoot">
-        <img selectit="false" class="selectAllItem" src="img/site/cartNotSelected.png">
+        <img selectit="false" class="selectAllItem" src="${pageContext.request.contextPath}/img/site/cartNotSelected.png">
         <span>全选</span>
         <!--         <a href="#">删除</a> -->
 

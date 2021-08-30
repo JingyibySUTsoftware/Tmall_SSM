@@ -51,7 +51,7 @@
                         var addCartpage = "foreaddCart";
                         $.get(
                             addCartpage,
-                            {"product.id": pid, "num": num},
+                            {"pid": pid, "num": num},
                             function (result) {
                                 if ("success" == result) {
                                     $(".addCartButton").html("已加入购物车");

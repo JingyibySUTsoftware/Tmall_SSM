@@ -76,4 +76,13 @@ public interface OrderItemService {
      * @return com.Tmall.bean.OrderItem
      */
     OrderItem getOrderItem(Integer id);
+    /**
+     * @description 删除对应的购物车订单项
+     * @param
+     * @param id
+     * @author jingyi
+     * @date 2021/8/30 19:09
+     * @return void
+     */
+    void deleteOrderItem(Integer id);
 }

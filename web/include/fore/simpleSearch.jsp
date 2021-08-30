@@ -2,7 +2,7 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 
 <div class="simpleSearchOutDiv" style="max-width:1024px;margin:0px auto;position:relative;">
-    <a href="${contextPath}">
+    <a href="${contextPath}/forehome">
         <img id="simpleLogo" class="simpleLogo" src="${pageContext.request.contextPath}/img/site/simpleLogo.png">
     </a>
 

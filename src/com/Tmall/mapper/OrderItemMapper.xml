@@ -30,9 +30,9 @@
         select sum(number) from orderitem  where  pid=#{pid}
     </select>
     <select id="getOderItemsByuid" resultMap="OrderItemmap">
-    select    p.id,p.name,p.promotePrice,oi.id oiid,oi.pid,oi.number
+    select    p.id,p.name,p.stock,p.promotePrice,p.originalPrice,oi.id oiid,oi.pid,oi.number
                 from orderitem oi,product p
-                where oi.uid=#{uid} and oi.pid=p.id
+                where oi.uid=#{uid} and oi.pid=p.id  and oi.oid is null
     </select>
     <insert id="addOrderItem" >
         <selectKey resultType="int" order="AFTER" keyProperty="id">
@@ -48,6 +48,9 @@
             from orderitem oi,product p
             where oi.id=#{id} and oi.pid=p.id
     </select>
+    <delete id="deleteOrderItem">
+        delete  from orderitem where id=#{id}
+    </delete>
 </mapper>
 
 

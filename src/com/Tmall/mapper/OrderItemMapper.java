@@ -18,4 +18,6 @@ public interface OrderItemMapper {
      void updateOrderItem(OrderItem orderItem);
 
      OrderItem getOrderItem(Integer id);
+
+     void deleteOrderItem(Integer id);
 }
