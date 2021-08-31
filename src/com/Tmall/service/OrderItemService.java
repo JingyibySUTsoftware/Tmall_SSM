@@ -85,4 +85,14 @@ public interface OrderItemService {
      * @return void
      */
     void deleteOrderItem(Integer id);
+    /**
+     * @description 创建订单后给每个订单项分配订单号
+     * @param
+     * @param oid
+     * @param id
+     * @author jingyi
+     * @date 2021/8/31 11:54
+     * @return void
+     */
+    void updateOrderItemoid(Integer oid,Integer id);
 }

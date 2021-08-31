@@ -33,4 +33,40 @@ public class OrderServiceImpl  implements OrderService {
     public void updateOrderStatus(Order o) {
         orderMapper.updateOrderStatus(o);
     }
+
+    @Override
+    public Order addOrder(Order order) {
+        orderMapper.addOrder(order);
+        return order;
+    }
+
+    @Override
+    public Order getOrder(Integer oid) {
+        return orderMapper.getOrder(oid);
+    }
+
+    @Override
+    public void updateOrderStatusAndpayDate(Order order) {
+        orderMapper.updateOrderStatusAndpayDate(order);
+    }
+
+    @Override
+    public List<Order> getAbleOrders(Integer uid) {
+        return orderMapper.getAbleOrders(uid);
+    }
+
+    @Override
+    public void updateOrderStatusAndConfirmDate(Order order) {
+        orderMapper.updateOrderStatusAndConfirmDate(order);
+    }
+
+    @Override
+    public boolean updatestatusdel(Order order) {
+        int i = orderMapper.updatestatusdel(order);
+        if (i>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -33,4 +33,9 @@ public class ReviewServiceImpl implements ReviewService {
         }
         //return reviewMapper.getCount(pid);
     }
+
+    @Override
+    public void addReview(Review review) {
+        reviewMapper.addReview(review);
+    }
 }

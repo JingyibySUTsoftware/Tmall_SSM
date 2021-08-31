@@ -10,4 +10,6 @@ public interface ReviewMapper {
     List<Review> getReviews(Integer pid);
 
     Integer getCount(Integer pid);
+
+    void addReview(Review review);
 }

@@ -7,6 +7,7 @@
         <result property="id" column="id"/>
         <result property="content" column="content"/>
         <result property="createdate" column="createDate"/>
+        <result property="uid" column="uid"/>
         <result property="pid" column="pid"/>
         <association property="user" javaType="User">
             <result property="id" column="id"/>
@@ -20,4 +21,7 @@
     <select id="getCount" resultType="Integer">
         select count(*) from review where pid =#{pid}
     </select>
+    <insert id="addReview">
+        insert into review(content,uid,pid,createDate) values(#{content},#{uid},#{pid},#{createdate})
+    </insert>
 </mapper>

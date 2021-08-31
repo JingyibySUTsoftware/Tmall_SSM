@@ -3,7 +3,7 @@
 
 <div class="payedDiv">
     <div class="payedTextDiv">
-        <img src="img/site/paySuccess.png">
+        <img src="${pageContext.request.contextPath}/img/site/paySuccess.png">
         <span>您已成功付款</span>
 
     </div>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="warningDiv">
-        <img src="img/site/warning.png">
+        <img src="${pageContext.request.contextPath}/img/site/warning.png">
         <b>安全提醒：</b>下单后，<span class="redColor boldWord">用QQ给您发送链接办理退款的都是骗子！</span>天猫不存在系统升级，订单异常等问题，谨防假冒客服电话诈骗！
     </div>
 

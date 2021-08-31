@@ -8,9 +8,21 @@ import java.util.List;
 
 @Repository
 public interface OrderMapper {
-	public List<Order> list(Page page);
+    List<Order> list(Page page);
 
-	public int total();
+    int total();
 
-	public void updateOrderStatus(Order o);
+    void updateOrderStatus(Order o);
+
+	void  addOrder(Order order);
+
+	Order getOrder(Integer oid);
+
+	void updateOrderStatusAndpayDate(Order order);
+
+	List<Order> getAbleOrders(Integer uid);
+
+	void updateOrderStatusAndConfirmDate(Order order);
+
+	int updatestatusdel(Order order);
 }

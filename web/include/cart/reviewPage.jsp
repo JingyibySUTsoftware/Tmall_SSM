@@ -4,7 +4,7 @@
 <div class="reviewDiv">
     <div class="reviewProductInfoDiv">
         <div class="reviewProductInfoImg"><img width="400px" height="400px"
-                                               src="img/productSingle/${product.firstProductImage.id}.jpg"></div>
+                                               src="img/productSingle/${product.productImage.id}.jpg"></div>
         <div class="reviewProductInfoRightDiv">
             <div class="reviewProductInfoRightText">
                 ${product.name}
@@ -28,7 +28,7 @@
             </table>
 
             <div class="reviewProductInfoRightBelowDiv">
-                <span class="reviewProductInfoRightBelowImg"><img1 src="img/site/reviewLight.png"></span>
+                <span class="reviewProductInfoRightBelowImg"><img1 src="${pageContext.request.contextPath}/img/site/reviewLight.png"></span>
                 <span class="reviewProductInfoRightBelowText">现在查看的是 您所购买商品的信息
                     于<fmt:formatDate value="${order.createDate}" pattern="yyyy年MM月dd"/>下单购买了此商品
                 </span>
@@ -54,9 +54,9 @@
         <div class="reviewDivlistReviews">
             <c:forEach items="${reviews}" var="r">
                 <div class="reviewDivlistReviewsEach">
-                    <div class="reviewDate"><fmt:formatDate value="${r.createDate}" pattern="yyyy-MM-dd"/></div>
+                    <div class="reviewDate"><fmt:formatDate value="${r.createdate}" pattern="yyyy-MM-dd"/></div>
                     <div class="reviewContent">${r.content}</div>
-                    <div class="reviewUserInfo pull-right">${r.user.anonymousName}<span class="reviewUserInfoAnonymous">(匿名)</span>
+                    <div class="reviewUserInfo pull-right">${r.user.name}<span class="reviewUserInfoAnonymous">(匿名)</span>
                     </div>
                 </div>
             </c:forEach>
@@ -70,12 +70,12 @@
                 <table class="makeReviewTable">
                     <tr>
                         <td class="makeReviewTableFirstTD">评价商品</td>
-                        <td><textarea name="review.content"></textarea></td>
+                        <td><textarea name="content"></textarea></td>
                     </tr>
                 </table>
                 <div class="makeReviewButtonDiv">
-                    <input type="hidden" name="order.id" value="${order.id}">
-                    <input type="hidden" name="product.id" value="${product.id}">
+                    <input type="hidden" name="oid" value="${order.id}">
+                    <input type="hidden" name="pid" value="${product.id}">
                     <button type="submit">提交评价</button>
                 </div>
             </form>

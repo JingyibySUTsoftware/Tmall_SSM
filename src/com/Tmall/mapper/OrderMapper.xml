@@ -34,6 +34,28 @@
 	<update id="updateOrderStatus">
 		update order_ set deliveryDate=#{deliveryDate},status=#{status} where id=#{id}
 	</update>
+	<insert id="addOrder">
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			select last_insert_id()
+		</selectKey>
+		insert into order_(orderCode,address,post,receiver,mobile,userMessage,createDate,uid,status)
+		values(#{orderCode},#{address},#{post},#{receiver},#{mobile},#{userMessage},#{createDate},#{uid},#{status})
+	</insert>
+	<select id="getOrder" resultMap="Ordermap">
+		select * from order_ where id=#{id}
+	</select>
+	<update id="updateOrderStatusAndpayDate">
+		update order_  set  payDate=#{payDate},status=#{status} where id=#{id}
+	</update>
+	<select id="getAbleOrders" resultMap="Ordermap">
+		select * from order_ where uid=#{uid} and status !='delete'  order by id desc
+	</select>
+	<update id="updateOrderStatusAndConfirmDate">
+		update order_  set  confirmDate=#{confirmDate},status=#{status} where id=#{id}
+	</update>
+	<update id="updatestatusdel">
+		update order_  set  status=#{status} where id=#{id}
+	</update>
 </mapper>
 
 

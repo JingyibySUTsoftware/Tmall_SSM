@@ -12,6 +12,7 @@ public class Review {
     private Integer id;
     private String content;
     private User user;
+    private Integer uid;
     private Integer pid;
     private Date createdate;
 
@@ -53,5 +54,13 @@ public class Review {
 
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }

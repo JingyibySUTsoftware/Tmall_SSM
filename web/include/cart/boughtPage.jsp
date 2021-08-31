@@ -38,7 +38,7 @@
                 var page = "foredeleteOrder";
                 $.post(
                     page,
-                    {"order.id": deleteOrderid},
+                    {"oid": deleteOrderid},
                     function (result) {
                         if ("success" == result) {
                             $("table.orderListItemTable[oid=" + deleteOrderid + "]").hide();
@@ -100,7 +100,7 @@
                         <span>订单号: ${o.orderCode}
                     </span>
                     </td>
-                    <td colspan="2"><img width="13px" src="img/site/orderItemTmall.png">天猫商场</td>
+                    <td colspan="2"><img width="13px" src="${pageContext.request.contextPath}/img/site/orderItemTmall.png">天猫商场</td>
                     <td colspan="1">
                         <a class="wangwanglink" href="#nowhere">
                             <div class="orderItemWangWangGif"></div>
@@ -114,18 +114,18 @@
 
                     </td>
                 </tr>
-                <c:forEach items="${o.orderItems}" var="oi" varStatus="st">
+                <c:forEach items="${o.orderItem}" var="oi" varStatus="st">
                     <tr class="orderItemProductInfoPartTR">
                         <td class="orderItemProductInfoPartTD"><img width="80" height="80"
-                                                                    src="img/productSingle_middle/${oi.product.firstProductImage.id}.jpg">
+                                                                    src="${pageContext.request.contextPath}/img/productSingle/middle/${oi.product.productImage.id}.jpg">
                         </td>
                         <td class="orderItemProductInfoPartTD">
                             <div class="orderListItemProductLinkOutDiv">
-                                <a href="foreproduct?product.id=${oi.product.id}">${oi.product.name}</a>
+                                <a href="foreproduct?pid=${oi.product.id}">${oi.product.name}</a>
                                 <div class="orderListItemProductLinkInnerDiv">
-                                    <img src="img/site/creditcard.png" title="支持信用卡支付">
-                                    <img src="img/site/7day.png" title="消费者保障服务,承诺7天退货">
-                                    <img src="img/site/promise.png" title="消费者保障服务,承诺如实描述">
+                                    <img src="${pageContext.request.contextPath}/img/site/creditcard.png" title="支持信用卡支付">
+                                    <img src="${pageContext.request.contextPath}/img/site/7day.png" title="消费者保障服务,承诺7天退货">
+                                    <img src="${pageContext.request.contextPath}/img/site/promise.png" title="消费者保障服务,承诺如实描述">
                                 </div>
                             </div>
                         </td>
@@ -141,11 +141,11 @@
                         </td>
                         <c:if test="${st.count==1}">
 
-                            <td valign="top" rowspan="${fn:length(o.orderItems)}"
+                            <td valign="top" rowspan="${fn:length(o.orderItem)}"
                                 class="orderListItemNumberTD orderItemOrderInfoPartTD" width="100px">
                                 <span class="orderListItemNumber">${o.totalNumber}</span>
                             </td>
-                            <td valign="top" rowspan="${fn:length(o.orderItems)}" width="120px"
+                            <td valign="top" rowspan="${fn:length(o.orderItem)}" width="120px"
                                 class="orderListItemProductRealPriceTD orderItemOrderInfoPartTD">
                                 <div class="orderListItemProductRealPrice">￥<fmt:formatNumber minFractionDigits="2"
                                                                                               maxFractionDigits="2"
@@ -153,20 +153,20 @@
                                                                                               value="${o.total}"/></div>
                                 <div class="orderListItemPriceWithTransport">(含运费：￥0.00)</div>
                             </td>
-                            <td valign="top" rowspan="${fn:length(o.orderItems)}"
+                            <td valign="top" rowspan="${fn:length(o.orderItem)}"
                                 class="orderListItemButtonTD orderItemOrderInfoPartTD" width="100px">
                                 <c:if test="${o.status=='waitConfirm' }">
-                                    <a href="foreconfirmPay?order.id=${o.id}">
+                                    <a href="foreconfirmPay?oid=${o.id}">
                                         <button class="orderListItemConfirm">确认收货</button>
                                     </a>
                                 </c:if>
                                 <c:if test="${o.status=='waitPay' }">
-                                    <a href="forealipay?order.id=${o.id}&total=${o.total}">
+                                    <a href="forealipay?oid=${o.id}&total=${o.total}">
                                         <button class="orderListItemConfirm">付款</button>
                                     </a>
                                 </c:if>
 
-                                <c:if test="${o.status=='waitDelivery' }">
+                                <c:if test="${o.status=='waitDelivery'}">
                                     <span>待发货</span>
 
                                     <button class="btn btn-info btn-sm ask2delivery"
@@ -176,7 +176,7 @@
                                 </c:if>
 
                                 <c:if test="${o.status=='waitReview' }">
-                                    <a href="forereview?order.id=${o.id}">
+                                    <a href="forereview?oid=${o.id}">
                                         <button class="orderListItemReview">评价</button>
                                     </a>
                                 </c:if>

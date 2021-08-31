@@ -22,7 +22,7 @@
         </association>
     </resultMap>
     <select id="getByoid" resultMap="OrderItemmap">
-            select    p.id,p.name,p.promotePrice,oi.number
+            select    p.id,p.name,p.originalPrice,p.promotePrice,oi.number
             from orderitem oi,product p
             where oi.oid=#{oid} and oi.pid=p.id
     </select>
@@ -51,6 +51,9 @@
     <delete id="deleteOrderItem">
         delete  from orderitem where id=#{id}
     </delete>
+    <update id="updateOrderItemoid">
+        update orderitem set oid=#{oid} where id=#{id}
+    </update>
 </mapper>
 
 

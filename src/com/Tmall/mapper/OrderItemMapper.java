@@ -1,6 +1,7 @@
 package com.Tmall.mapper;
 
 import com.Tmall.bean.OrderItem;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface OrderItemMapper {
      OrderItem getOrderItem(Integer id);
 
      void deleteOrderItem(Integer id);
+
+     void updateOrderItemoid(@Param("oid") Integer oid,@Param("id") Integer id);
 }

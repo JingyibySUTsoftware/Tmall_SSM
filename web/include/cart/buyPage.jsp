@@ -16,20 +16,20 @@
                     <tr>
                         <td class="firstColumn">详细地址<span class="redStar">*</span></td>
 
-                        <td><textarea name="order.address" placeholder="建议您如实填写详细收货地址，例如接到名称，门牌号码，楼层和房间号等信息"></textarea>
+                        <td><textarea name="address" placeholder="建议您如实填写详细收货地址，例如接到名称，门牌号码，楼层和房间号等信息"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td>邮政编码</td>
-                        <td><input name="order.post" placeholder="如果您不清楚邮递区号，请填写000000" type="text"></td>
+                        <td><input name="post" placeholder="如果您不清楚邮递区号，请填写000000" type="text"></td>
                     </tr>
                     <tr>
                         <td>收货人姓名<span class="redStar">*</span></td>
-                        <td><input name="order.receiver" placeholder="长度不超过25个字符" type="text"></td>
+                        <td><input name="receiver" placeholder="长度不超过25个字符" type="text"></td>
                     </tr>
                     <tr>
                         <td>手机号码 <span class="redStar">*</span></td>
-                        <td><input name="order.mobile" placeholder="请输入11位手机号码" type="text"></td>
+                        <td><input name="mobile" placeholder="请输入11位手机号码" type="text"></td>
                     </tr>
                 </table>
 
@@ -116,7 +116,7 @@
                     <img class="leaveMessageImg" src="${pageContext.request.contextPath}/img/site/leaveMessage.png">
                 </span>
                     <span class="leaveMessageTextareaSpan">
-                    <textarea name="order.userMessage" class="leaveMessageTextarea"></textarea>
+                    <textarea name="userMessage" class="leaveMessageTextarea"></textarea>
                     <div>
                         <span>还可以输入200个字符</span>
                     </div>

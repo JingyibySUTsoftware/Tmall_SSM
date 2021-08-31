@@ -3,7 +3,7 @@
 
 <div class="confirmPayPageDiv">
     <div class="confirmPayImageDiv">
-        <img src="img/site/comformPayFlow.png">
+        <img src="${pageContext.request.contextPath}/img/site/comformPayFlow.png">
         <div class="confirmPayTime1">
             <fmt:formatDate value="${order.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
         </div>
@@ -28,9 +28,9 @@
             <th width="120px">商品总价</th>
             <th width="120px">运费</th>
             </thead>
-            <c:forEach items="${order.orderItems}" var="oi">
+            <c:forEach items="${order.orderItem}" var="oi">
                 <tr>
-                    <td><img width="50px" src="img/productSingle_middle/${oi.product.firstProductImage.id}.jpg"></td>
+                    <td><img width="50px" src="${pageContext.request.contextPath}/img/productSingle/middle/${oi.product.productImage.id}.jpg"></td>
                     <td class="confirmPayOrderItemProductLink">
                         <a href="#nowhere">${oi.product.name}</a>
                     </td>
@@ -56,7 +56,7 @@
         <table class="confirmPayOrderDetailTable">
             <tr>
                 <td>订单编号：</td>
-                <td>${order.orderCode} <img width="23px" src="img/site/confirmOrderTmall.png"></td>
+                <td>${order.orderCode} <img width="23px" src="${pageContext.request.contextPath}/img/site/confirmOrderTmall.png"></td>
             </tr>
             <tr>
                 <td>卖家昵称：</td>
@@ -75,7 +75,7 @@
     </div>
     <div class="confirmPayButtonDiv">
         <div class="confirmPayWarning">请收到货后，再确认收货！否则您可能钱货两空！</div>
-        <a href="foreorderConfirmed?order.id=${order.id}">
+        <a href="foreorderConfirmed?oid=${order.id}">
             <button class="confirmPayButton">确认支付</button>
         </a>
     </div>

@@ -124,7 +124,7 @@
             $(".cartProductItemIfSelected").each(function () {
                 if ("selectit" == $(this).attr("selectit")) {
                     var oiid = $(this).attr("oiid");
-                    params += "&oiids=" + oiid;
+                    params += "&oiid=" + oiid;
                 }
             });
             params = params.substring(1);
@@ -161,9 +161,9 @@
         });
 
         if (selectAll)
-            $("img.selectAllItem").attr("src", "img/site/cartSelected.png");
+            $("img.selectAllItem").attr("src", "${pageContext.request.contextPath}/img/site/cartSelected.png");
         else
-            $("img.selectAllItem").attr("src", "img/site/cartNotSelected.png");
+            $("img.selectAllItem").attr("src", "${pageContext.request.contextPath}/img/site/cartNotSelected.png");
 
     }
 

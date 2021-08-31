@@ -24,4 +24,13 @@ public interface ReviewService {
      * @return int
      */
     Integer getCount(Integer pid);
+    /**
+     * @description 添加商品评论
+     * @param
+     * @param review
+     * @author jingyi
+     * @date 2021/8/31 20:42
+     * @return void
+     */
+    void addReview(Review review);
 }
