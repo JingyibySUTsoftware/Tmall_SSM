@@ -17,7 +17,7 @@
         select   u.*,r.* from user u,review r,product p
         where u.id=r.uid and  r.pid=#{pid}
     </select>
-    <select id="getCount" resultType="int">
+    <select id="getCount" resultType="Integer">
         select count(*) from review where pid =#{pid}
     </select>
 </mapper>

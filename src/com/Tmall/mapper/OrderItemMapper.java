@@ -9,7 +9,7 @@ import java.util.List;
 public interface OrderItemMapper {
      List<OrderItem>  getByoid(Integer oid);
 
-     int getSaleCount(Integer pid);
+     Integer getSaleCount(Integer pid);
 
      List<OrderItem> getOderItemsByuid(Integer uid);
 

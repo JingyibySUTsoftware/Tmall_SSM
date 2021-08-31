@@ -24,7 +24,13 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public int getCount(Integer pid) {
-        return reviewMapper.getCount(pid);
+    public Integer getCount(Integer pid) {
+        Integer count = reviewMapper.getCount(pid);
+        if (count==null){
+            return  0;
+        }else{
+            return reviewMapper.getCount(pid);
+        }
+        //return reviewMapper.getCount(pid);
     }
 }

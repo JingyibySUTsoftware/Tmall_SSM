@@ -9,5 +9,5 @@ import java.util.List;
 public interface ReviewMapper {
     List<Review> getReviews(Integer pid);
 
-    int getCount(Integer pid);
+    Integer getCount(Integer pid);
 }

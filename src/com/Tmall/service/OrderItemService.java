@@ -39,7 +39,7 @@ public interface OrderItemService {
      * @date 2021/8/15 17:08
      * @return int
      */
-    int getSaleCount(Integer pid);
+    Integer getSaleCount(Integer pid);
     /**
      * @description 获取该用户的订单项
      * @param

@@ -62,8 +62,14 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public int getSaleCount(Integer pid) {
-        return orderItemMapper.getSaleCount(pid);
+    public Integer getSaleCount(Integer pid) {
+        Integer saleCount = orderItemMapper.getSaleCount(pid);
+        if(saleCount==null){
+            return 0;
+        }else {
+            return  saleCount;
+        }
+        //return orderItemMapper.getSaleCount(pid);
     }
 
     @Override

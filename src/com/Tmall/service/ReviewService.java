@@ -23,5 +23,5 @@ public interface ReviewService {
      * @date 2021/8/15 17:15
      * @return int
      */
-    int getCount(Integer pid);
+    Integer getCount(Integer pid);
 }
