@@ -30,7 +30,12 @@
             <a href="forebought">我的订单</a>
             <a href="${pageContext.request.contextPath}/forecart">
                 <span style="color: #c40000;margin: 0px;" class="glyphicon glyphicon-shopping-cart redColor"></span>
-                购物车<strong>${cartTotalItemNumber}</strong> 件
+                <c:if test="${empty cartTotalItemNumber}">
+                    购物车<strong>0</strong> 件
+                </c:if>
+                <c:if test="${!empty cartTotalItemNumber}">
+                    购物车<strong>${cartTotalItemNumber}</strong> 件
+                </c:if>
             </a>
         </span>
     </div>
